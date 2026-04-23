@@ -4,7 +4,7 @@ const TopBar = () => {
     const citta = ["Bari", "Bologna", "Firenze", "Genova", "Milano", "Napoli", "Palermo", "Parma", "Roma", "Torino"];
 
     return (
-        <div className="bg-light border-bottom d-none d-lg-block py-1 font-sans" style={{fontSize: '11px'}}>
+        <div className="bg-light border-bottom d-none d-md-block py-1 font-sans" style={{fontSize: '11px'}}>
             <div className="container d-flex justify-content-between align-items-center text-uppercase">
                 <div className="d-flex gap-3 align-items-center">
                     <span className="fw-bold text-secondary">Edizioni:</span>
