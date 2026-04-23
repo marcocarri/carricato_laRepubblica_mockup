@@ -23,3 +23,38 @@ body {
   border-bottom: 1px solid var(--rep-border);
   padding: 20px 0;
 }
+
+.main-logo {
+  font-family: 'Georgia', serif;
+  font-weight: 900;
+  letter-spacing: -3px;
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .main-logo {
+    font-size: 5rem;
+    letter-spacing: -5px;
+  }
+}
+
+.italic-50 {
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 300;
+  margin-left: 5px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (min-width: 768px) {
+  .border-end-md {
+    border-right: 1px solid #dee2e6 !important;
+  }
+}
