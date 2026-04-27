@@ -2,16 +2,16 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="bg-white border-top border-2 mt-5 font-sans">
+        <footer className="bg-white border-top border-secondary border-2 mt-5 font-sans" style={{ borderTopOpacity: '0.8' }}>
 
-            <div className="container py-5">
+            <div className="container pt-4 pb-5">
                 <div className="row">
 
                     {/* macrosez1: logo/info/tasto/app/social */}
                     <div className="col-12 col-md-3 pe-md-4 border-end-md text-center text-md-start">
 
                         {/* sez1: logo/info */}
-                        <div className="mb-3">
+                        <div className="mb-2">
                             <h2 className="main-logo m-0 fw-black text-dark text-nowrap" style={{fontSize: '1.8rem', letterSpacing: '-1px'}}>
                                 la Repubblica
                             </h2>
@@ -22,20 +22,20 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        <hr className="text-secondary opacity-25 my-4 d-none d-md-block" />
+                        <hr className="text-secondary opacity-25 my-3" />
 
                         {/* sez2: tasto abbonati */}
                         <button className="btn btn-rep-blue text-white fw-bold py-2 px-4 rounded-0 d-block d-md-inline-block mx-auto mx-md-0 mb-4 mb-md-0">
                             Abbonati
                         </button>
 
-                        <hr className="text-secondary opacity-25 my-4 d-none d-md-block" />
+                        <hr className="text-secondary opacity-25 my-3" />
 
                         {/* sez3-4: link app e icone social */}
-                        <div className="d-flex flex-row justify-content-center justify-content-md-start gap-5 gap-md-0 flex-md-column">
+                        <div className="d-flex flex-row justify-content-start gap-5 gap-md-0 flex-md-column">
 
                             {/* link app */}
-                            <div>
+                            <div className="text-start">
                                 <h6 className="fw-black text-uppercase small m-0 mb-2" style={{fontSize: '13px'}}>APP</h6>
                                 <a href="#!" className="text-secondary text-decoration-underline small me-2">Iphone</a>
                                 <span className="text-secondary">|</span>
@@ -45,7 +45,7 @@ const Footer = () => {
                             <hr className="text-secondary opacity-25 my-4 d-none d-md-block" />
 
                             {/* icone social */}
-                            <div>
+                            <div className="text-start">
                                 <h6 className="fw-black text-uppercase small m-0 mb-2" style={{fontSize: '13px'}}>SOCIAL</h6>
                                 <div className="d-flex gap-2 justify-content-center justify-content-md-start">
                                     <a href="#!" className="social-icon" aria-label="Facebook"><i className="bi bi-facebook"></i></a>
@@ -58,10 +58,12 @@ const Footer = () => {
 
                         </div>
 
+                        <hr className="text-secondary opacity-25 my-4 d-md-none" />
+
                     </div>
 
-                    {/* macrosez2: supplmenti/griglia/network */}
-                    <div className="col-12 col-md-9 ps-md-4 mt-5 mt-md-0">
+                    {/* macrosez2: supplementi/griglia/network */}
+                    <div className="col-12 col-md-9 ps-md-4 mt-2 mt-md-0">
 
                         {/* sez1: supplementi */}
                         <div className="mb-4 text-center text-md-start">
