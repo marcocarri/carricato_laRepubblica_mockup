@@ -1,19 +1,42 @@
 :root {
   --rep-red: #e1251b;
-  --rep-black: #000;
+  --rep-black: #000000;
   --rep-gray-bg: #f6f6f6;
   --rep-border: #e0e0e0;
-  --font-serif: 'Georgia', serif;
-  --font-sans: 'Arial', sans-serif;
+  --rep-slate: #3f4d5a;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Arial', 'Helvetica', sans-serif;
 }
 
 body {
   margin: 0;
   font-family: var(--font-serif);
-  background-color: #fff;
+  background-color: #ffffff;
+  color: var(--rep-black);
+  -webkit-font-smoothing: antialiased;
 }
 
-.font-sans { font-family: var(--font-sans); }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.bg-slate {
+  background-color: var(--rep-slate);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-pointer:hover,
+.dropdown-item:active {
+  color: var(--rep-red) !important;
+}
 
 .gd-row {
   display: flex;
@@ -24,11 +47,19 @@ body {
   padding: 20px 0;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .main-logo {
-  font-family: 'Georgia', serif;
+  font-family: var(--font-serif);
   font-weight: 900;
-  letter-spacing: -3px;
-  font-size: 2.5rem;
+  letter-spacing: -2px;
+  font-size: 2.2rem;
 }
 
 @media (min-width: 768px) {
@@ -45,16 +76,8 @@ body {
   margin-left: 5px;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-@media (min-width: 768px) {
-  .border-end-md {
-    border-right: 1px solid #dee2e6 !important;
-  }
+.dropdown-toggle::after {
+  vertical-align: middle;
+  margin-left: 0.3em;
+  font-size: 0.8em;
 }
