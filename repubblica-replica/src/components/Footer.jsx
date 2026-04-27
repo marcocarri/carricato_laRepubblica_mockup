@@ -8,11 +8,11 @@ const Footer = () => {
                 <div className="row">
 
                     {/* macrosez1: logo/info/tasto/app/social */}
-                    <div className="col-12 col-md-3 pe-md-4 border-end-md">
+                    <div className="col-12 col-md-3 pe-md-4 border-end-md text-center text-md-start">
 
                         {/* sez1: logo/info */}
                         <div className="mb-3">
-                            <h2 className="main-logo m-0 fw-black text-dark" style={{fontSize: '2rem', letterSpacing: '-1px'}}>
+                            <h2 className="main-logo m-0 fw-black text-dark text-nowrap" style={{fontSize: '1.8rem', letterSpacing: '-1px'}}>
                                 la Repubblica
                             </h2>
                             <div className="small text-secondary mt-2" style={{fontSize: '12px', lineHeight: '1.8'}}>
@@ -22,46 +22,51 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        <hr className="text-secondary opacity-25 my-4" />
+                        <hr className="text-secondary opacity-25 my-4 d-none d-md-block" />
 
                         {/* sez2: tasto abbonati */}
-                        <button className="btn btn-rep-blue text-white fw-bold py-2 px-4 rounded-0">
+                        <button className="btn btn-rep-blue text-white fw-bold py-2 px-4 rounded-0 d-block d-md-inline-block mx-auto mx-md-0 mb-4 mb-md-0">
                             Abbonati
                         </button>
 
-                        <hr className="text-secondary opacity-25 my-4" />
+                        <hr className="text-secondary opacity-25 my-4 d-none d-md-block" />
 
-                        {/* sez3: link app */}
-                        <div>
-                            <h6 className="fw-black text-uppercase small m-0 mb-2" style={{fontSize: '13px'}}>APP</h6>
-                            <a href="#!" className="text-secondary text-decoration-underline small me-2">Iphone</a>
-                            <span className="text-secondary">|</span>
-                            <a href="#!" className="text-secondary text-decoration-underline small ms-2">Android</a>
-                        </div>
+                        {/* sez3-4: link app e icone social */}
+                        <div className="d-flex flex-row justify-content-center justify-content-md-start gap-5 gap-md-0 flex-md-column">
 
-                        <hr className="text-secondary opacity-25 my-4" />
-
-                        {/* sez4: icone social */}
-                        <div className="mb-4 mb-md-0">
-                            <h6 className="fw-black text-uppercase small m-0 mb-2" style={{fontSize: '13px'}}>SOCIAL</h6>
-                            <div className="d-flex gap-2">
-                                <a href="#!" className="social-icon" aria-label="Facebook"><i className="bi bi-facebook"></i></a>
-                                <a href="#!" className="social-icon" aria-label="X (Twitter)"><i className="bi bi-twitter-x"></i></a>
-                                <a href="#!" className="social-icon" aria-label="Instagram"><i className="bi bi-instagram"></i></a>
-                                <a href="#!" className="social-icon" aria-label="TikTok"><i className="bi bi-tiktok"></i></a>
-                                <a href="#!" className="social-icon" aria-label="YouTube"><i className="bi bi-youtube"></i></a>
+                            {/* link app */}
+                            <div>
+                                <h6 className="fw-black text-uppercase small m-0 mb-2" style={{fontSize: '13px'}}>APP</h6>
+                                <a href="#!" className="text-secondary text-decoration-underline small me-2">Iphone</a>
+                                <span className="text-secondary">|</span>
+                                <a href="#!" className="text-secondary text-decoration-underline small ms-2">Android</a>
                             </div>
+
+                            <hr className="text-secondary opacity-25 my-4 d-none d-md-block" />
+
+                            {/* icone social */}
+                            <div>
+                                <h6 className="fw-black text-uppercase small m-0 mb-2" style={{fontSize: '13px'}}>SOCIAL</h6>
+                                <div className="d-flex gap-2 justify-content-center justify-content-md-start">
+                                    <a href="#!" className="social-icon" aria-label="Facebook"><i className="bi bi-facebook"></i></a>
+                                    <a href="#!" className="social-icon" aria-label="X (Twitter)"><i className="bi bi-twitter-x"></i></a>
+                                    <a href="#!" className="social-icon" aria-label="Instagram"><i className="bi bi-instagram"></i></a>
+                                    <a href="#!" className="social-icon" aria-label="TikTok"><i className="bi bi-tiktok"></i></a>
+                                    <a href="#!" className="social-icon" aria-label="YouTube"><i className="bi bi-youtube"></i></a>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
 
                     {/* macrosez2: supplmenti/griglia/network */}
-                    <div className="col-12 col-md-9 ps-md-4 mt-4 mt-md-0">
+                    <div className="col-12 col-md-9 ps-md-4 mt-5 mt-md-0">
 
                         {/* sez1: supplementi */}
-                        <div className="mb-4">
+                        <div className="mb-4 text-center text-md-start">
                             <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>SUPPLEMENTI REPUBBLICA</h6>
-                            <div className="d-flex flex-wrap gap-3 gap-md-4 mt-2 small text-secondary">
+                            <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-3 gap-md-4 mt-2 small text-secondary">
                                 <a href="#!" className="hover-red">Affari e Finanza</a>
                                 <a href="#!" className="hover-red">D</a>
                                 <a href="#!" className="hover-red">Il Venerdì</a>
@@ -75,7 +80,7 @@ const Footer = () => {
                         <div className="row mt-4">
 
                             {/* column1 */}
-                            <div className="col-12 col-md-4 mb-4 mb-md-0">
+                            <div className="col-6 col-md-4 mb-4 mb-md-0">
                                 <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>GEDI NEWS NETWORK</h6>
                                 <ul className="list-unstyled small text-secondary lh-lg mt-2 mb-4">
                                     <li><a href="#!" className="hover-red">La Stampa</a></li>
@@ -94,7 +99,7 @@ const Footer = () => {
                             </div>
 
                             {/* column2 */}
-                            <div className="col-12 col-md-4 mb-4 mb-md-0">
+                            <div className="col-6 col-md-4 mb-4 mb-md-0">
                                 <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>RADIO E PODCAST</h6>
                                 <ul className="list-unstyled small text-secondary lh-lg mt-2 mb-4">
                                     <li><a href="#!" className="hover-red">DeeJay</a></li>
@@ -119,7 +124,7 @@ const Footer = () => {
                             </div>
 
                             {/* column3 */}
-                            <div className="col-12 col-md-4">
+                            <div className="col-6 col-md-4">
                                 <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>SERVIZI, TV E CONSUMI</h6>
                                 <ul className="list-unstyled small text-secondary lh-lg mt-2">
                                     <li><a href="#!" className="hover-red">Annunci</a></li>
@@ -141,7 +146,7 @@ const Footer = () => {
                         {/* sez3: network Lena */}
                         <div className="mb-2">
                             <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>NETWORK LENA</h6>
-                            <div className="d-flex flex-wrap gap-3 mt-2 small text-secondary">
+                            <div className="d-grid d-md-flex flex-md-wrap gap-2 gap-md-3 mt-2 small text-secondary" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
                                 <a href="#!" className="hover-red">Die Welt</a>
                                 <a href="#!" className="hover-red">El Pais</a>
                                 <a href="#!" className="hover-red">Gazeta Wyborcza</a>
