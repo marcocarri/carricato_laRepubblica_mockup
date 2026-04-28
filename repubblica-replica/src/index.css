@@ -29,14 +29,42 @@ a {
   background-color: var(--rep-slate);
 }
 
+.bg-offwhite {
+  background-color: #f9f9f9 !important;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
 
+/* =========================================
+   COMPORTAMENTO COLORI (HOVER + FOCUS BLU)
+   ========================================= */
+
+/* Colore blu per Hover, Focus (click mantenuto) e Dropdown aperti */
 .cursor-pointer:hover,
-.dropdown-item:active {
-  color: var(--rep-red) !important;
+.cursor-pointer:focus,
+.dropdown-toggle:hover,
+.dropdown-toggle:focus,
+.dropdown-toggle.show,
+.text-blue-active {
+  color: #5b88d5 !important;
+  outline: none !important;
 }
+
+/* Transizione fluida per il cambio colore */
+.cursor-pointer, .dropdown-toggle {
+  transition: color 0.2s ease-in-out;
+}
+
+/* Link nel footer (qui manteniamo il rosso o cambialo in #0d6efd se preferisci) */
+.hover-red:hover {
+  color: #5b88d5 !important;
+}
+
+/* =========================================
+   STRUTTURA E GRIGLIA
+   ========================================= */
 
 .gd-row {
   display: flex;
@@ -54,6 +82,10 @@ a {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* =========================================
+   HEADER & LOGO
+   ========================================= */
 
 .main-logo {
   font-family: var(--font-serif);
@@ -82,6 +114,10 @@ a {
   font-size: 0.8em;
 }
 
+/* =========================================
+   FOOTER E COMPONENTI EXTRA
+   ========================================= */
+
 .btn-rep-blue {
   background-color: #3b76b5;
   border-color: #3b76b5;
@@ -109,13 +145,13 @@ a {
   border-color: var(--rep-red);
 }
 
-.hover-red:hover {
-  color: var(--rep-red) !important;
-}
-
 .fw-black {
   font-weight: 900;
 }
+
+/* =========================================
+   MEGA MENU DROPDOWNS
+   ========================================= */
 
 .header-collapsible {
   max-height: 500px;
@@ -128,4 +164,42 @@ a {
   max-height: 0;
   opacity: 0;
   pointer-events: none;
+}
+
+.mega-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px 40px;
+  line-height: 2;
+}
+
+.mega-menu-sections {
+  width: 850px;
+  left: 0 !important;
+  transform: none !important;
+  top: 100% !important;
+}
+
+.mega-menu-services {
+  width: max-content;
+  padding-right: 40px;
+  left: 0 !important;
+  right: auto !important;
+  transform: none !important;
+  top: 100% !important;
+}
+
+.mega-menu-edizioni {
+  width: max-content;
+  min-width: 600px;
+}
+
+.mega-menu-sections a,
+.mega-menu-services a,
+.mega-menu-edizioni a {
+  text-decoration: none;
+  font-weight: bold;
+  font-family: var(--font-sans);
+  text-transform: capitalize;
+  white-space: nowrap;
 }
