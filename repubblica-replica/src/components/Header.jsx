@@ -15,7 +15,7 @@ const Header = () => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    },)
+    },[])
 
     //componente per realizzare il banner grigio con la news nel header
     const GreyNewsBanner = () => (
@@ -27,7 +27,7 @@ const Header = () => {
                 </div>
                 <div className="ms-3">
                     <h2 className="h6 fw-bold m-0 font-sans" style={{ lineHeight: '1.4' }}>
-                        Il partigiano Gastone: "Prego che i giovani non debbano vivere ciò che abbiamo passato noi"
+                        Lorem ipsum dolor sit amet: "Consectetur adipiscing elit sed do eiusmod tempor incididunt"
                     </h2>
                 </div>
             </div>
@@ -115,11 +115,14 @@ const Header = () => {
                                     </div>
                                 </div>
 
-                                <div className="d-flex gap-4 ms-4 text-nowrap text-secondary align-items-center h-100 flex-grow-1">
+                                <div className="d-flex gap-4 ms-4 text-nowrap text-secondary align-items-center h-100 flex-grow-1 overflow-auto no-scrollbar">
                                     <span className="text-dark">Repubblica50</span>
-                                    <span>Iran</span>
-                                    <span>Ucraina</span>
-                                    <span>Decreto Sicurezza</span>
+                                    <span>Dolor Sit</span>
+                                    <span>Amet</span>
+                                    <span>Consectetur</span>
+                                    <span>Adipiscing</span>
+                                    <span>Elit</span>
+                                    <span>Eiusmod</span>
                                 </div>
                             </div>
                         </nav>
@@ -165,10 +168,12 @@ const Header = () => {
                             <div className="container-fluid px-3 overflow-auto no-scrollbar font-sans fw-bold" style={{fontSize: '14px'}}>
                                 <div className="d-flex gap-4 text-nowrap text-secondary">
                                     <span className="text-dark">Repubblica50</span>
-                                    <span>25 aprile</span>
-                                    <span>Ucraina</span>
-                                    <span>Iran</span>
-                                    <span>Champions</span>
+                                    <span>Dolor Sit</span>
+                                    <span>Amet</span>
+                                    <span>Consectetur</span>
+                                    <span>Adipiscing</span>
+                                    <span>Elit</span>
+                                    <span>Eiusmod</span>
                                 </div>
                             </div>
                         </nav>

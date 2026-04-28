@@ -16,9 +16,9 @@ const Footer = () => {
                                 la Repubblica
                             </h2>
                             <div className="small text-secondary mt-2" style={{fontSize: '12px', lineHeight: '1.8'}}>
-                                GEDI News Network S.p.A.<br/>
-                                P.Iva 01578251009<br/>
-                                ISSN 2499-0817
+                                Lorem Ipsum Network S.p.A.<br/>
+                                P.Iva 00000000000<br/>
+                                ISSN 0000-0000
                             </div>
                         </div>
 
@@ -67,12 +67,12 @@ const Footer = () => {
 
                         {/* sez1: supplementi */}
                         <div className="mb-4 text-center text-md-start">
-                            <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>SUPPLEMENTI REPUBBLICA</h6>
+                            <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>SUPPLEMENTI LOREM</h6>
                             <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-3 gap-md-4 mt-2 small text-secondary">
-                                <a href="#!" className="hover-red">Affari e Finanza</a>
+                                <a href="#!" className="hover-red">Lorem e Ipsum</a>
                                 <a href="#!" className="hover-red">D</a>
-                                <a href="#!" className="hover-red">Il Venerdì</a>
-                                <a href="#!" className="hover-red">Robinson</a>
+                                <a href="#!" className="hover-red">Il Dolor</a>
+                                <a href="#!" className="hover-red">Sit Amet</a>
                             </div>
                         </div>
 
@@ -83,20 +83,20 @@ const Footer = () => {
 
                             {/* column1 */}
                             <div className="col-6 col-md-4 mb-4 mb-md-0">
-                                <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>GEDI NEWS NETWORK</h6>
+                                <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>LOREM NEWS NETWORK</h6>
                                 <ul className="list-unstyled small text-secondary lh-lg mt-2 mb-4">
-                                    <li><a href="#!" className="hover-red">La Stampa</a></li>
-                                    <li><a href="#!" className="hover-red">HuffPost Italia</a></li>
-                                    <li><a href="#!" className="hover-red">Fem</a></li>
-                                    <li><a href="#!" className="hover-red">Formula Passion</a></li>
-                                    <li><a href="#!" className="hover-red">VD News</a></li>
+                                    <li><a href="#!" className="hover-red">La Ipsum</a></li>
+                                    <li><a href="#!" className="hover-red">Dolor Italia</a></li>
+                                    <li><a href="#!" className="hover-red">Sit</a></li>
+                                    <li><a href="#!" className="hover-red">Amet Consectetur</a></li>
+                                    <li><a href="#!" className="hover-red">Adipiscing News</a></li>
                                 </ul>
 
                                 <h6 className="fw-black text-uppercase small mt-4" style={{fontSize: '13px'}}>PERIODICI</h6>
                                 <ul className="list-unstyled small text-secondary lh-lg mt-2">
-                                    <li><a href="#!" className="hover-red">Le Scienze</a></li>
-                                    <li><a href="#!" className="hover-red">Limes</a></li>
-                                    <li><a href="#!" className="hover-red">National Geographic</a></li>
+                                    <li><a href="#!" className="hover-red">Le Elit</a></li>
+                                    <li><a href="#!" className="hover-red">Sed Do</a></li>
+                                    <li><a href="#!" className="hover-red">Eiusmod Tempor</a></li>
                                 </ul>
                             </div>
 
@@ -104,10 +104,10 @@ const Footer = () => {
                             <div className="col-6 col-md-4 mb-4 mb-md-0">
                                 <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>RADIO E PODCAST</h6>
                                 <ul className="list-unstyled small text-secondary lh-lg mt-2 mb-4">
-                                    <li><a href="#!" className="hover-red">DeeJay</a></li>
-                                    <li><a href="#!" className="hover-red">Capital</a></li>
-                                    <li><a href="#!" className="hover-red">m2o</a></li>
-                                    <li><a href="#!" className="hover-red">Onepodcast</a></li>
+                                    <li><a href="#!" className="hover-red">Incididunt</a></li>
+                                    <li><a href="#!" className="hover-red">Ut Labore</a></li>
+                                    <li><a href="#!" className="hover-red">Et Dolore</a></li>
+                                    <li><a href="#!" className="hover-red">Magna Aliqua</a></li>
                                 </ul>
 
                                 <h6 className="fw-black text-uppercase small mt-4" style={{fontSize: '13px'}}>INIZIATIVE EDITORIALI</h6>
@@ -117,27 +117,27 @@ const Footer = () => {
 
                                 <h6 className="fw-black text-uppercase small mt-4" style={{fontSize: '13px'}}>PARTNERSHIP</h6>
                                 <ul className="list-unstyled small text-secondary lh-lg mt-2">
-                                    <li><a href="#!" className="hover-red">LAB</a></li>
-                                    <li><a href="#!" className="hover-red">MyMovies</a></li>
-                                    <li><a href="#!" className="hover-red">AutoXY</a></li>
-                                    <li><a href="#!" className="hover-red">Formula Passion</a></li>
-                                    <li><a href="#!" className="hover-red">Sport.it</a></li>
+                                    <li><a href="#!" className="hover-red">Ut Enim</a></li>
+                                    <li><a href="#!" className="hover-red">Ad Minim</a></li>
+                                    <li><a href="#!" className="hover-red">Veniam</a></li>
+                                    <li><a href="#!" className="hover-red">Quis Nostrud</a></li>
+                                    <li><a href="#!" className="hover-red">Exercitation</a></li>
                                 </ul>
                             </div>
 
                             {/* column3 */}
                             <div className="col-6 col-md-4">
-                                <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>SERVIZI, TV E CONSUMI</h6>
+                                <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>SERVIZI E LOREM</h6>
                                 <ul className="list-unstyled small text-secondary lh-lg mt-2">
-                                    <li><a href="#!" className="hover-red">Annunci</a></li>
-                                    <li><a href="#!" className="hover-red">Ilmiolibro</a></li>
-                                    <li><a href="#!" className="hover-red">Enti e Tribunali</a></li>
-                                    <li><a href="#!" className="hover-red">Meteo</a></li>
-                                    <li><a href="#!" className="hover-red">Tvzap</a></li>
-                                    <li><a href="#!" className="hover-red">Dizionario italiano</a></li>
-                                    <li><a href="#!" className="hover-red">Dizionario inglese/italiano</a></li>
-                                    <li><a href="#!" className="hover-red">Consigli.it</a></li>
-                                    <li><a href="#!" className="hover-red">Codici Sconto</a></li>
+                                    <li><a href="#!" className="hover-red">Ullamco</a></li>
+                                    <li><a href="#!" className="hover-red">Laboris Nisi</a></li>
+                                    <li><a href="#!" className="hover-red">Ut Aliquip</a></li>
+                                    <li><a href="#!" className="hover-red">Ex Ea</a></li>
+                                    <li><a href="#!" className="hover-red">Commodo</a></li>
+                                    <li><a href="#!" className="hover-red">Consequat italiano</a></li>
+                                    <li><a href="#!" className="hover-red">Duis Aute</a></li>
+                                    <li><a href="#!" className="hover-red">Irure Dolor</a></li>
+                                    <li><a href="#!" className="hover-red">In Reprehenderit</a></li>
                                 </ul>
                             </div>
 
@@ -147,15 +147,15 @@ const Footer = () => {
 
                         {/* sez3: network Lena */}
                         <div className="mb-2">
-                            <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>NETWORK LENA</h6>
+                            <h6 className="fw-black text-uppercase small" style={{fontSize: '13px'}}>NETWORK IPSUM</h6>
                             <div className="d-grid d-md-flex flex-md-wrap gap-2 gap-md-3 mt-2 small text-secondary" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-                                <a href="#!" className="hover-red">Die Welt</a>
-                                <a href="#!" className="hover-red">El Pais</a>
-                                <a href="#!" className="hover-red">Gazeta Wyborcza</a>
-                                <a href="#!" className="hover-red">Le Figaro</a>
-                                <a href="#!" className="hover-red">Le Soir</a>
-                                <a href="#!" className="hover-red">Tages Anzeiger</a>
-                                <a href="#!" className="hover-red">Tribune de Geneve</a>
+                                <a href="#!" className="hover-red">Voluptate</a>
+                                <a href="#!" className="hover-red">Velit Esse</a>
+                                <a href="#!" className="hover-red">Cillum Dolore</a>
+                                <a href="#!" className="hover-red">Eu Fugiat</a>
+                                <a href="#!" className="hover-red">Nulla Pariatur</a>
+                                <a href="#!" className="hover-red">Excepteur Sint</a>
+                                <a href="#!" className="hover-red">Occaecat</a>
                             </div>
                         </div>
 
@@ -181,7 +181,7 @@ const Footer = () => {
                         <a href="#!" className="hover-red">Riserva TDM</a>
                     </div>
                     <div>
-                        Copyright © 2001-2026 GEDI News Network S.p.A. Tutti i diritti sono riservati
+                        Copyright © 2001-2026 Lorem Ipsum Network S.p.A. Tutti i diritti sono riservati
                     </div>
                 </div>
             </div>
