@@ -45,7 +45,7 @@ const Header = () => {
     );
 
     return (
-        <header className="page-header sticky-top bg-white border-bottom">
+        <header className="page-header sticky-top bg-white">
 
             {/* modalità desktop */}
             <div className="d-none d-md-block">
@@ -143,17 +143,15 @@ const Header = () => {
                     </div>
 
                     {/* sez: sezioni/edizioni locali/servizi/news fisse */}
-                    <nav className="border-bottom position-relative" style={{backgroundColor: 'var(--rep-gray-bg)', zIndex: 1040}}>
-                        {/* 1. AGGIUNTI BORDI NERI LATERALI PER INIZIARE LA SCATOLA */}
-                        <div className="container border-start border-end border-dark d-flex align-items-center font-sans text-uppercase fw-bold p-0" style={{fontSize: '13px', height: '45px'}}>
+                    <nav className="position-relative" style={{zIndex: 1040}}>
+                        {/* Apertura Scatola: border-top, border-start, border-end */}
+                        <div className="container border-top border-start border-end border-bottom box-border-color d-flex align-items-center font-sans text-uppercase fw-bold p-0"
+                             style={{fontSize: '13px', height: '45px', backgroundColor: 'var(--rep-gray-bg)'}}>
 
                             <div className="d-flex h-100 bg-white position-relative">
-
-                                {/* 1. MEGA MENU: SEZIONI (5 Colonne) */}
-                                <div className="dropdown h-100 border-end border-start px-3 d-flex align-items-center position-static">
-                                    {/* 2. Aggiunto data-bs-display="static" per forzare apertura in basso */}
+                                {/* MEGA MENU: SEZIONI */}
+                                <div className="dropdown h-100 border-end border-start box-border-color px-3 d-flex align-items-center position-static">
                                     <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-display="static" data-bs-auto-close="outside">SEZIONI</span>
-                                    {/* 3. Rimossa riga rossa (border-top border-3 border-danger) */}
                                     <div className="dropdown-menu rounded-0 shadow-sm border-0 p-4 mega-menu-sections mt-0">
                                         <div className="mega-grid-5">
                                             <a href="#!" className="text-dark hover-red">Politica</a>
@@ -161,44 +159,38 @@ const Header = () => {
                                             <a href="#!" className="text-dark hover-red">Esteri</a>
                                             <a href="#!" className="text-dark hover-red">Cronaca</a>
                                             <a href="#!" className="text-dark hover-red">Commenti</a>
-
                                             <a href="#!" className="text-dark hover-red">Scuola</a>
                                             <a href="#!" className="text-dark hover-red">Cultura</a>
                                             <a href="#!" className="text-dark hover-red">Lorem Ipsum</a>
                                             <a href="#!" className="text-dark hover-red">Dolor</a>
                                             <a href="#!" className="text-dark hover-red">Sit</a>
-
                                             <a href="#!" className="text-dark hover-red">Amet</a>
                                             <a href="#!" className="text-dark hover-red">Consectetur</a>
                                             <a href="#!" className="text-dark hover-red">Sport</a>
                                             <a href="#!" className="text-dark hover-red">Spettacoli</a>
                                             <a href="#!" className="text-dark hover-red">Serie Tv</a>
-
                                             <a href="#!" className="text-dark hover-red">Rubriche</a>
                                             <a href="#!" className="text-dark hover-red">Podcast</a>
                                             <a href="#!" className="text-dark hover-red">Video</a>
                                             <a href="#!" className="text-dark hover-red">Salute</a>
                                             <a href="#!" className="text-dark hover-red">Adipiscing</a>
-
                                             <a href="#!" className="text-dark hover-red">Italian Tech</a>
                                             <a href="#!" className="text-dark hover-red">Design</a>
                                             <a href="#!" className="text-dark hover-red">Il Gusto</a>
                                             <a href="#!" className="text-dark hover-red">La Zampa</a>
                                             <a href="#!" className="text-dark hover-red">Motori</a>
-
                                             <a href="#!" className="text-dark hover-red">Viaggi</a>
                                             <a href="#!" className="text-dark hover-red">Vaticano</a>
                                             <a href="#!" className="text-dark hover-red">Londra</a>
                                             <a href="#!" className="text-dark hover-red">Elezioni</a>
                                             <a href="#!" className="text-dark hover-red">Mondo Solidale</a>
-
                                             <a href="#!" className="text-dark hover-red">Lorem@Ipsum</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* 2. MEGA MENU: EDIZIONI LOCALI (Riga Orizzontale) */}
-                                <div className="dropdown h-100 border-end px-3 d-flex align-items-center">
+                                {/* MEGA MENU: EDIZIONI LOCALI */}
+                                <div className="dropdown h-100 border-end box-border-color px-3 d-flex align-items-center">
                                     <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-display="static">EDIZIONI LOCALI</span>
                                     <div className="dropdown-menu rounded-0 shadow-sm border-0 p-4 mega-menu-edizioni mt-0">
                                         <div className="d-flex flex-wrap gap-4 justify-content-center">
@@ -215,8 +207,8 @@ const Header = () => {
                                     </div>
                                 </div>
 
-                                {/* 3. MEGA MENU: SERVIZI (5 Colonne) */}
-                                <div className="dropdown h-100 border-end px-3 d-flex align-items-center">
+                                {/* MEGA MENU: SERVIZI */}
+                                <div className="dropdown h-100 border-end box-border-color px-3 d-flex align-items-center">
                                     <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-display="static">SERVIZI</span>
                                     <div className="dropdown-menu rounded-0 shadow-sm border-0 p-4 mega-menu-services mt-0">
                                         <div className="mega-grid-5">
@@ -225,13 +217,11 @@ const Header = () => {
                                             <a href="#!" className="text-dark hover-red">Codici Sconto</a>
                                             <a href="#!" className="text-dark hover-red">Giochi online</a>
                                             <a href="#!" className="text-dark hover-red">Giochi e Scommesse</a>
-
                                             <a href="#!" className="text-dark hover-red">Ilmiolibro</a>
                                             <a href="#!" className="text-dark hover-red">Meteo</a>
                                             <a href="#!" className="text-dark hover-red">Oroscopo</a>
                                             <a href="#!" className="text-dark hover-red">Ipsum.it</a>
                                             <a href="#!" className="text-dark hover-red">Dizionari</a>
-
                                             <a href="#!" className="text-dark hover-red">Aste</a>
                                             <a href="#!" className="text-dark hover-red">Mymovies</a>
                                             <a href="#!" className="text-dark hover-red">Preventivi auto</a>

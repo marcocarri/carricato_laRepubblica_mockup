@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="bg-white border-top border-secondary border-2 mt-5 font-sans" style={{ borderTopOpacity: '0.8' }}>
+        <footer className="bg-white border-top border-secondary border-2 font-sans" style={{ borderTopOpacity: '0.8' }}>
 
             <div className="container pt-4 pb-5">
                 <div className="row">

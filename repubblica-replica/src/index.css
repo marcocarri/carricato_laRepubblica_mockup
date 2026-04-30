@@ -6,6 +6,22 @@
   --rep-slate: #3f4d5a;
   --font-serif: 'Georgia', 'Times New Roman', serif;
   --font-sans: 'Arial', 'Helvetica', sans-serif;
+  --rep-box-border: #b0b0b0; /* Grigio simile al footer ma definito */
+}
+
+/* La classe per la nostra scatola */
+.box-border-color {
+  border-color: var(--rep-box-border) !important;
+}
+
+/* Divisore che va da un lato all'altro della scatola */
+.hr-full-box {
+  margin-left: -1.5rem; /* Compensa il px-4 del container */
+  margin-right: -1.5rem;
+  border-top: 1px solid var(--rep-box-border);
+  opacity: 1;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 body {
