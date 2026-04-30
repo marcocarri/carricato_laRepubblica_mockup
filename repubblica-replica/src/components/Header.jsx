@@ -6,9 +6,10 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 150) {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > 300) {
                 setIsScrolled(true);
-            } else if (window.scrollY < 50) {
+            } else if (currentScrollY < 10 ) {
                 setIsScrolled(false);
             }
         };
@@ -31,7 +32,7 @@ const Header = () => {
         <div className="bg-slate text-white py-2">
             <div className="container d-flex align-items-center px-3 px-md-0">
                 <div className="position-relative" style={{ minWidth: '120px' }}>
-                    <img src="https://placehold.co/120x68/222/FFF?text=Video" alt="News Video" className="img-fluid" />
+                    <img src="https://placehold.co/120x68/222/FFF?" alt="News Video" className="img-fluid" />
                     <i className="bi bi-play-circle-fill position-absolute top-50 start-50 translate-middle fs-4"></i>
                 </div>
                 <div className="ms-3">
@@ -120,131 +121,139 @@ const Header = () => {
                     )}
                 </div>
 
-                {!isScrolled && (
-                    <>
-                        {/* sez: banner grigio news */}
-                        <GreyNewsBanner />
+                {/* Refined transition for Desktop Header Content */}
+                <div style={{
+                    maxHeight: isScrolled ? '0' : '800px',
+                    overflow: isScrolled ? 'hidden' : 'visible', /* IL SEGRETO È QUI: visible quando è aperto! */
+                    opacity: isScrolled ? '0' : '1',
+                    visibility: isScrolled ? 'hidden' : 'visible',
+                    transition: 'max-height 0.4s ease-in-out, opacity 0.3s ease-in-out'
+                }}>
+                    {/* sez: banner grigio news */}
+                    <GreyNewsBanner />
 
-                        {/* sez: logo e data */}
-                        <div className="container py-4 text-center border-bottom">
-                            <h1 className="main-logo m-0 fw-black text-dark">
-                                la Repubblica<span className="text-danger italic-50">50</span>
-                            </h1>
-                            <div className="text-secondary small text-uppercase mt-2 font-sans" style={{fontSize: '11px', letterSpacing: '0.5px'}}>
-                                {pageLoadTime.date} - AGGIORNATO ALLE <time>{pageLoadTime.time}</time>
+                    {/* sez: logo e data */}
+                    <div className="container py-4 text-center border-bottom">
+                        <h1 className="main-logo m-0 fw-black text-dark">
+                            la Repubblica<span className="text-danger italic-50">50</span>
+                        </h1>
+                        <div className="text-secondary small text-uppercase mt-2 font-sans" style={{fontSize: '11px', letterSpacing: '0.5px'}}>
+                            {pageLoadTime.date} - AGGIORNATO ALLE <time>{pageLoadTime.time}</time>
+                        </div>
+                    </div>
+
+                    {/* sez: sezioni/edizioni locali/servizi/news fisse */}
+                    <nav className="border-bottom position-relative" style={{backgroundColor: 'var(--rep-gray-bg)', zIndex: 1040}}>
+                        {/* 1. AGGIUNTI BORDI NERI LATERALI PER INIZIARE LA SCATOLA */}
+                        <div className="container border-start border-end border-dark d-flex align-items-center font-sans text-uppercase fw-bold p-0" style={{fontSize: '13px', height: '45px'}}>
+
+                            <div className="d-flex h-100 bg-white position-relative">
+
+                                {/* 1. MEGA MENU: SEZIONI (5 Colonne) */}
+                                <div className="dropdown h-100 border-end border-start px-3 d-flex align-items-center position-static">
+                                    {/* 2. Aggiunto data-bs-display="static" per forzare apertura in basso */}
+                                    <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-display="static" data-bs-auto-close="outside">SEZIONI</span>
+                                    {/* 3. Rimossa riga rossa (border-top border-3 border-danger) */}
+                                    <div className="dropdown-menu rounded-0 shadow-sm border-0 p-4 mega-menu-sections mt-0">
+                                        <div className="mega-grid-5">
+                                            <a href="#!" className="text-dark hover-red">Politica</a>
+                                            <a href="#!" className="text-dark hover-red">Economia</a>
+                                            <a href="#!" className="text-dark hover-red">Esteri</a>
+                                            <a href="#!" className="text-dark hover-red">Cronaca</a>
+                                            <a href="#!" className="text-dark hover-red">Commenti</a>
+
+                                            <a href="#!" className="text-dark hover-red">Scuola</a>
+                                            <a href="#!" className="text-dark hover-red">Cultura</a>
+                                            <a href="#!" className="text-dark hover-red">Lorem Ipsum</a>
+                                            <a href="#!" className="text-dark hover-red">Dolor</a>
+                                            <a href="#!" className="text-dark hover-red">Sit</a>
+
+                                            <a href="#!" className="text-dark hover-red">Amet</a>
+                                            <a href="#!" className="text-dark hover-red">Consectetur</a>
+                                            <a href="#!" className="text-dark hover-red">Sport</a>
+                                            <a href="#!" className="text-dark hover-red">Spettacoli</a>
+                                            <a href="#!" className="text-dark hover-red">Serie Tv</a>
+
+                                            <a href="#!" className="text-dark hover-red">Rubriche</a>
+                                            <a href="#!" className="text-dark hover-red">Podcast</a>
+                                            <a href="#!" className="text-dark hover-red">Video</a>
+                                            <a href="#!" className="text-dark hover-red">Salute</a>
+                                            <a href="#!" className="text-dark hover-red">Adipiscing</a>
+
+                                            <a href="#!" className="text-dark hover-red">Italian Tech</a>
+                                            <a href="#!" className="text-dark hover-red">Design</a>
+                                            <a href="#!" className="text-dark hover-red">Il Gusto</a>
+                                            <a href="#!" className="text-dark hover-red">La Zampa</a>
+                                            <a href="#!" className="text-dark hover-red">Motori</a>
+
+                                            <a href="#!" className="text-dark hover-red">Viaggi</a>
+                                            <a href="#!" className="text-dark hover-red">Vaticano</a>
+                                            <a href="#!" className="text-dark hover-red">Londra</a>
+                                            <a href="#!" className="text-dark hover-red">Elezioni</a>
+                                            <a href="#!" className="text-dark hover-red">Mondo Solidale</a>
+
+                                            <a href="#!" className="text-dark hover-red">Lorem@Ipsum</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 2. MEGA MENU: EDIZIONI LOCALI (Riga Orizzontale) */}
+                                <div className="dropdown h-100 border-end px-3 d-flex align-items-center">
+                                    <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-display="static">EDIZIONI LOCALI</span>
+                                    <div className="dropdown-menu rounded-0 shadow-sm border-0 p-4 mega-menu-edizioni mt-0">
+                                        <div className="d-flex flex-wrap gap-4 justify-content-center">
+                                            <a href="#!" className="text-dark hover-red">Bari</a>
+                                            <a href="#!" className="text-dark hover-red">Bologna</a>
+                                            <a href="#!" className="text-dark hover-red">Firenze</a>
+                                            <a href="#!" className="text-dark hover-red">Genova</a>
+                                            <a href="#!" className="text-dark hover-red">Milano</a>
+                                            <a href="#!" className="text-dark hover-red">Napoli</a>
+                                            <a href="#!" className="text-dark hover-red">Palermo</a>
+                                            <a href="#!" className="text-dark hover-red">Roma</a>
+                                            <a href="#!" className="text-dark hover-red">Torino</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 3. MEGA MENU: SERVIZI (5 Colonne) */}
+                                <div className="dropdown h-100 border-end px-3 d-flex align-items-center">
+                                    <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-display="static">SERVIZI</span>
+                                    <div className="dropdown-menu rounded-0 shadow-sm border-0 p-4 mega-menu-services mt-0">
+                                        <div className="mega-grid-5">
+                                            <a href="#!" className="text-dark hover-red">Newsletter</a>
+                                            <a href="#!" className="text-dark hover-red">Annunci</a>
+                                            <a href="#!" className="text-dark hover-red">Codici Sconto</a>
+                                            <a href="#!" className="text-dark hover-red">Giochi online</a>
+                                            <a href="#!" className="text-dark hover-red">Giochi e Scommesse</a>
+
+                                            <a href="#!" className="text-dark hover-red">Ilmiolibro</a>
+                                            <a href="#!" className="text-dark hover-red">Meteo</a>
+                                            <a href="#!" className="text-dark hover-red">Oroscopo</a>
+                                            <a href="#!" className="text-dark hover-red">Ipsum.it</a>
+                                            <a href="#!" className="text-dark hover-red">Dizionari</a>
+
+                                            <a href="#!" className="text-dark hover-red">Aste</a>
+                                            <a href="#!" className="text-dark hover-red">Mymovies</a>
+                                            <a href="#!" className="text-dark hover-red">Preventivi auto</a>
+                                            <a href="#!" className="text-dark hover-red">Programmi Tv</a>
+                                            <a href="#!" className="text-dark hover-red">Consigli.it</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="d-flex gap-4 ms-4 text-nowrap text-secondary align-items-center h-100 flex-grow-1 overflow-auto no-scrollbar">
+                                <span className="text-secondary">Repubblica50</span>
+                                <span>Dolor Sit</span>
+                                <span>Amet</span>
+                                <span>Consectetur</span>
+                                <span>Adipiscing</span>
+                                <span>Elit</span>
+                                <span>Eiusmod</span>
                             </div>
                         </div>
-
-                        {/* sez: sezioni/edizioni locali/servizi/news fisse */}
-                        <nav className="border-bottom" style={{backgroundColor: 'var(--rep-gray-bg)'}}>
-                            <div className="container d-flex align-items-center font-sans text-uppercase fw-bold p-0" style={{fontSize: '13px', height: '45px'}}>
-
-                                <div className="d-flex h-100 bg-white position-relative">
-
-                                    {/* 1. MEGA MENU: SEZIONI (5 Colonne) */}
-                                    <div className="dropdown h-100 border-end border-start px-3 d-flex align-items-center position-static">
-                                        <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-auto-close="outside">SEZIONI</span>
-                                        <div className="dropdown-menu rounded-0 shadow border-0 border-top border-3 border-danger p-4 mega-menu-sections mt-0">
-                                            <div className="mega-grid-5">
-                                                <a href="#!" className="text-dark hover-red">Politica</a>
-                                                <a href="#!" className="text-dark hover-red">Economia</a>
-                                                <a href="#!" className="text-dark hover-red">Esteri</a>
-                                                <a href="#!" className="text-dark hover-red">Cronaca</a>
-                                                <a href="#!" className="text-dark hover-red">Commenti</a>
-
-                                                <a href="#!" className="text-dark hover-red">Scuola</a>
-                                                <a href="#!" className="text-dark hover-red">Cultura</a>
-                                                <a href="#!" className="text-dark hover-red">Lorem Ipsum</a> {/* Robinson */}
-                                                <a href="#!" className="text-dark hover-red">Dolor</a> {/* Venerdì */}
-                                                <a href="#!" className="text-dark hover-red">Sit</a> {/* D */}
-
-                                                <a href="#!" className="text-dark hover-red">Amet</a> {/* U */}
-                                                <a href="#!" className="text-dark hover-red">Consectetur</a> {/* Door */}
-                                                <a href="#!" className="text-dark hover-red">Sport</a>
-                                                <a href="#!" className="text-dark hover-red">Spettacoli</a>
-                                                <a href="#!" className="text-dark hover-red">Serie Tv</a>
-
-                                                <a href="#!" className="text-dark hover-red">Rubriche</a>
-                                                <a href="#!" className="text-dark hover-red">Podcast</a>
-                                                <a href="#!" className="text-dark hover-red">Video</a>
-                                                <a href="#!" className="text-dark hover-red">Salute</a>
-                                                <a href="#!" className="text-dark hover-red">Adipiscing</a> {/* Green&Blue */}
-
-                                                <a href="#!" className="text-dark hover-red">Italian Tech</a>
-                                                <a href="#!" className="text-dark hover-red">Design</a>
-                                                <a href="#!" className="text-dark hover-red">Il Gusto</a>
-                                                <a href="#!" className="text-dark hover-red">La Zampa</a>
-                                                <a href="#!" className="text-dark hover-red">Motori</a>
-
-                                                <a href="#!" className="text-dark hover-red">Viaggi</a>
-                                                <a href="#!" className="text-dark hover-red">Vaticano</a>
-                                                <a href="#!" className="text-dark hover-red">Londra</a>
-                                                <a href="#!" className="text-dark hover-red">Elezioni</a>
-                                                <a href="#!" className="text-dark hover-red">Mondo Solidale</a>
-
-                                                <a href="#!" className="text-dark hover-red">Lorem@Ipsum</a> {/* Repubblica@Scuola */}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* 2. MEGA MENU: EDIZIONI LOCALI (Riga Orizzontale) */}
-                                    <div className="dropdown h-100 border-end px-3 d-flex align-items-center">
-                                        <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown">EDIZIONI LOCALI</span>
-                                        <div className="dropdown-menu rounded-0 shadow border-0 border-top border-3 border-danger p-4 mega-menu-edizioni mt-0">
-                                            <div className="d-flex flex-wrap gap-4 justify-content-center">
-                                                <a href="#!" className="text-dark hover-red">Bari</a>
-                                                <a href="#!" className="text-dark hover-red">Bologna</a>
-                                                <a href="#!" className="text-dark hover-red">Firenze</a>
-                                                <a href="#!" className="text-dark hover-red">Genova</a>
-                                                <a href="#!" className="text-dark hover-red">Milano</a>
-                                                <a href="#!" className="text-dark hover-red">Napoli</a>
-                                                <a href="#!" className="text-dark hover-red">Palermo</a>
-                                                <a href="#!" className="text-dark hover-red">Roma</a>
-                                                <a href="#!" className="text-dark hover-red">Torino</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* 3. MEGA MENU: SERVIZI (5 Colonne) */}
-                                    <div className="dropdown h-100 border-end px-3 d-flex align-items-center">
-                                        <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown">SERVIZI</span>
-                                        <div className="dropdown-menu rounded-0 shadow border-0 border-top border-3 border-danger p-4 mega-menu-services mt-0">
-                                            <div className="mega-grid-5">
-                                                <a href="#!" className="text-dark hover-red">Newsletter</a>
-                                                <a href="#!" className="text-dark hover-red">Annunci</a>
-                                                <a href="#!" className="text-dark hover-red">Codici Sconto</a>
-                                                <a href="#!" className="text-dark hover-red">Giochi online</a>
-                                                <a href="#!" className="text-dark hover-red">Giochi e Scommesse</a>
-
-                                                <a href="#!" className="text-dark hover-red">Ilmiolibro</a>
-                                                <a href="#!" className="text-dark hover-red">Meteo</a>
-                                                <a href="#!" className="text-dark hover-red">Oroscopo</a>
-                                                <a href="#!" className="text-dark hover-red">Ipsum.it</a> {/* Joy.it */}
-                                                <a href="#!" className="text-dark hover-red">Dizionari</a>
-
-                                                <a href="#!" className="text-dark hover-red">Aste</a>
-                                                <a href="#!" className="text-dark hover-red">Mymovies</a>
-                                                <a href="#!" className="text-dark hover-red">Preventivi auto</a>
-                                                <a href="#!" className="text-dark hover-red">Programmi Tv</a>
-                                                <a href="#!" className="text-dark hover-red">Consigli.it</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="d-flex gap-4 ms-4 text-nowrap text-secondary align-items-center h-100 flex-grow-1 overflow-auto no-scrollbar">
-                                    <span className="text-secondary">Repubblica50</span>
-                                    <span>Dolor Sit</span>
-                                    <span>Amet</span>
-                                    <span>Consectetur</span>
-                                    <span>Adipiscing</span>
-                                    <span>Elit</span>
-                                    <span>Eiusmod</span>
-                                </div>
-                            </div>
-                        </nav>
-                    </>
-                )}
+                    </nav>
+                </div>
             </div>
 
             {/* modalità mobile */}
@@ -265,37 +274,47 @@ const Header = () => {
                         </h1>
                         <i className="bi bi-person-circle fs-4 text-secondary"></i>
                     </div>
-                    {!isScrolled && (
-                        <>
-                            <hr className="m-0 border-secondary opacity-100" style={{color: '#484848'}} />
-                            <div className="text-secondary py-1 font-sans text-uppercase" style={{fontSize: '10px'}}>
-                                {pageLoadTime.date} - AGGIORNATO ALLE {pageLoadTime.time}
-                            </div>
-                        </>
-                    )}
+                    {/* Refined transition for Mobile Data/Time */}
+                    <div style={{
+                        maxHeight: isScrolled ? '0' : '50px',
+                        overflow: 'hidden',
+                        opacity: isScrolled ? '0' : '1',
+                        visibility: isScrolled ? 'hidden' : 'visible',
+                        transition: 'max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s'
+                    }}>
+                        <hr className="m-0 border-secondary opacity-100" style={{color: '#484848'}} />
+                        <div className="text-secondary py-1 font-sans text-uppercase" style={{fontSize: '10px'}}>
+                            {pageLoadTime.date} - AGGIORNATO ALLE {pageLoadTime.time}
+                        </div>
+                    </div>
                 </div>
 
-                {!isScrolled && (
-                    <>
-                        {/* sez: banner grigio news */}
-                        <GreyNewsBanner />
+                {/* Refined transition for Mobile Banner/Nav */}
+                <div style={{
+                    maxHeight: isScrolled ? '0' : '200px',
+                    overflow: 'hidden',
+                    opacity: isScrolled ? '0' : '1',
+                    visibility: isScrolled ? 'hidden' : 'visible',
+                    transition: 'max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s'
+                }}>
+                    {/* sez: banner grigio news */}
+                    <GreyNewsBanner />
 
-                        {/* sez: news fisse */}
-                        <nav className="py-2 bg-white shadow-sm">
-                            <div className="container-fluid px-3 overflow-auto no-scrollbar font-sans fw-bold" style={{fontSize: '14px'}}>
-                                <div className="d-flex gap-4 text-nowrap text-secondary">
-                                    <span className="text-dark">Repubblica50</span>
-                                    <span>Dolor Sit</span>
-                                    <span>Amet</span>
-                                    <span>Consectetur</span>
-                                    <span>Adipiscing</span>
-                                    <span>Elit</span>
-                                    <span>Eiusmod</span>
-                                </div>
+                    {/* sez: news fisse */}
+                    <nav className="py-2 bg-white shadow-sm">
+                        <div className="container-fluid px-3 overflow-auto no-scrollbar font-sans fw-bold" style={{fontSize: '14px'}}>
+                            <div className="d-flex gap-4 text-nowrap text-secondary">
+                                <span className="text-dark">Repubblica50</span>
+                                <span>Dolor Sit</span>
+                                <span>Amet</span>
+                                <span>Consectetur</span>
+                                <span>Adipiscing</span>
+                                <span>Elit</span>
+                                <span>Eiusmod</span>
                             </div>
-                        </nav>
-                    </>
-                )}
+                        </div>
+                    </nav>
+                </div>
             </div>
         </header>
     );
