@@ -20,10 +20,10 @@ const SidebarMenu = ({ isOpen, onClose }) => {
             <div className="offcanvas-header border-bottom border-dark border-2 p-3 d-flex align-items-center justify-content-between bg-white position-sticky top-0" style={{zIndex: 10}}>
                 <div className="fw-bold" style={{fontFamily: 'Georgia', fontSize: '2rem'}}>R</div>
 
-                <div className="input-group mx-3">
-                    <input type="text" className="form-control rounded-0" placeholder="Ricerca su Repubblica" />
-                    <button className="btn btn-outline-secondary rounded-0 text-dark hover-red">
-                        <i className="bi bi-search"></i>
+                <div className="input-group mx-auto w-50 border border-dark border-1">
+                    <input type="text" className="form-control border-0 shadow-none py-1" placeholder="Ricerca su Repubblica" style={{fontSize: '14px'}} />
+                    <button className="btn bg-white border-0 text-dark hover-red py-1 px-2">
+                        <i className="bi bi-search fw-bold"></i>
                     </button>
                 </div>
 
