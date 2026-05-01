@@ -178,16 +178,15 @@ const UltimeNotizie = () => (
 // --- componente principale dell'area dei contenuti ---
 const MainBody = () => {
 
-    // LOGICA METEO DINAMICO
-    // Calcola la fase attuale e le 3 successive in base all'ora
+    // --- calcolo dinamico delle fasi meteo in base all'ora attuale ---
     const getMeteoDinamico = () => {
         const ore = new Date().getHours();
 
-        let indiceFase
-        if (ore >= 6 && ore < 12) indiceFase = 0;      // Mattino
-        else if (ore >= 12 && ore < 18) indiceFase = 1; // Pomeriggio
-        else if (ore >= 18 && ore < 24) indiceFase = 2; // Sera
-        else indiceFase = 3;                            // Notte
+        let indiceFase;
+        if (ore >= 6 && ore < 12) indiceFase = 0;      // mattino
+        else if (ore >= 12 && ore < 18) indiceFase = 1; // pomeriggio
+        else if (ore >= 18 && ore < 24) indiceFase = 2; // sera
+        else indiceFase = 3;                            // notte
 
         const fasiGiornata =[
             { nome: 'Mattino', icona: '?' },
@@ -208,7 +207,6 @@ const MainBody = () => {
     const meteo = getMeteoDinamico();
 
     return (
-
         <main className="container border-start border-end box-border-color border-1 px-3 px-md-4 pt-3 pb-5 bg-white">
 
             {/* --- layout primario in cima --- */}
@@ -374,39 +372,39 @@ const MainBody = () => {
                 </div>
             </div>
 
-            {/* ============================================================== */}
-            {/* 4. METEO, GIOCHI E OROSCOPO                                    */}
-            {/* ============================================================== */}
+            {/* --- area widget: meteo, giochi e oroscopo --- */}
             <div className="border p-4 bg-white rounded-1 m-0">
                 <div className="row">
 
-                    {/* METEO */}
+                    {/* blocco meteo */}
                     <div className="col-12 col-md-6 border-end-md pe-md-4 mb-5 mb-md-0">
+
+                        {/* intestazione meteo */}
                         <div className="d-flex justify-content-between align-items-center border-top pt-2 mb-3">
                             <h3 className="h6 fw-black m-0 font-sans text-uppercase">Meteo</h3>
                             <a href="#!" className="badge bg-dark text-white text-decoration-none rounded-0 py-1 px-2 font-sans">TUTTE LE PREVISIONI</a>
                         </div>
 
-                        {/* Rimosso flex-nowrap! Usiamo flex-column su mobile/tablet e flex-xl-row su schermi grandissimi */}
+                        {/* layout flessibile: colonna su mobile/tablet, riga su schermi molto grandi (xl) */}
                         <div className="d-flex flex-column flex-xl-row align-items-center justify-content-between">
 
-                            {/* Meteo Attuale */}
+                            {/* meteo attuale */}
                             <div className="d-flex align-items-center mb-2 mb-xl-0 w-100 justify-content-center justify-content-md-start">
-                                <img src={`https://placehold.co/100x100/FFD700/FFF?text=${meteo.corrente.icona}`} className="rounded-circle me-3 shadow-sm" alt={meteo.corrente.nome} style={{width: '90px'}} />
+                                <img src={`https://placehold.co/100x100/FFD700/FFF?text=${meteo.corrente.icona}`} className="rounded-circle me-3 shadow-sm" alt={meteo.corrente.nome} style={{ width: '90px' }} />
                                 <div className="text-start">
-                                    <h4 className="fw-black m-0" style={{fontSize: '1.4rem'}}>Luogo</h4>
-                                    <div className="text-dark fw-bold m-0" style={{fontSize: '1.2rem'}}>{meteo.corrente.nome}</div>
-                                    <div className="text-secondary my-1 font-sans fw-bold" style={{fontSize: '0.9rem'}}>{meteo.oggi}</div>
+                                    <h4 className="fw-black m-0" style={{ fontSize: '1.4rem' }}>Luogo</h4>
+                                    <div className="text-dark fw-bold m-0" style={{ fontSize: '1.2rem' }}>{meteo.corrente.nome}</div>
+                                    <div className="text-secondary my-1 font-sans fw-bold" style={{ fontSize: '0.9rem' }}>{meteo.oggi}</div>
                                     <h2 className="display-7 fw-black text-dark m-0 lh-1">temperatura°C</h2>
                                 </div>
                             </div>
 
-                            {/* Separatore: Linea VERTICALE su Desktop (xl), Linea ORIZZONTALE su Mobile/Tablet */}
-                            <div className="d-none d-xl-block border-end h-100 mx-2 mx-xl-3 border-secondary opacity-25" style={{minHeight: '120px'}}></div>
+                            {/* separatore dinamico: linea verticale su desktop (xl), linea orizzontale altrove */}
+                            <div className="d-none d-xl-block border-end h-100 mx-2 mx-xl-3 border-secondary opacity-25" style={{ minHeight: '120px' }}></div>
                             <hr className="d-xl-none w-100 my-3 text-secondary opacity-25" />
 
-                            {/* Previsioni Future */}
-                            <div className="d-flex flex-column w-100 justify-content-center align-items-center align-items-md-start" style={{maxWidth: '150px'}}>
+                            {/* previsioni delle fasi successive */}
+                            <div className="d-flex flex-column w-100 justify-content-center align-items-center align-items-md-start" style={{ maxWidth: '150px' }}>
                                 <div className="d-flex align-items-center py-1 w-100">
                                     <img src={`https://placehold.co/30x30/FFD700/FFF?text=${meteo.succ1.icona}`} className="rounded-circle" alt={meteo.succ1.nome} />
                                     <span className="small font-sans ms-3 text-dark">{meteo.succ1.nome}</span>
@@ -425,13 +423,13 @@ const MainBody = () => {
                         </div>
                     </div>
 
-                    {/* GIOCHI */}
+                    {/* blocco giochi */}
                     <div className="col-12 col-md-6 ps-md-4">
                         <div className="border-top pt-2 mb-3">
                             <h3 className="h6 fw-black m-0 font-sans text-uppercase">Giochi</h3>
                         </div>
 
-                        {/* flex-column su mobile, flex-row su desktop */}
+                        {/* layout flessibile: colonna su mobile, riga affiancata su desktop */}
                         <div className="d-flex flex-column flex-md-row justify-content-around align-items-center h-75 gap-4 gap-md-0">
 
                             <div className="text-center cursor-pointer hover-red w-100 w-md-50">
@@ -439,7 +437,7 @@ const MainBody = () => {
                                 <img src="https://placehold.co/120x120/FFF/000?text=SUDOKU" className="border shadow-sm mx-auto d-block" alt="Sudoku" />
                             </div>
 
-                            {/* Divisore tra i giochi: orizzontale su mobile, verticale su desktop */}
+                            {/* divisore tra i giochi: orizzontale su mobile, verticale su desktop */}
                             <hr className="d-md-none w-75 border-secondary opacity-25 my-0" />
                             <div className="d-none d-md-block border-end h-75 border-secondary opacity-25 mx-2"></div>
 
@@ -452,14 +450,14 @@ const MainBody = () => {
                     </div>
                 </div>
 
-                {/* OROSCOPO */}
+                {/* blocco oroscopo (lista a scorrimento orizzontale) */}
                 <div className="col-12 mt-4 pt-3 border-top">
                     <h3 className="h6 fw-black m-0 font-sans text-uppercase mb-3">Oroscopo</h3>
                     <div className="d-flex flex-nowrap justify-content-lg-between overflow-auto no-scrollbar gap-4 gap-lg-2 pb-2">
                         {['Ariete', 'Toro', 'Gemelli', 'Cancro', 'Leone', 'Vergine', 'Bilancia', 'Scorpione', 'Sagittario', 'Capricorno', 'Acquario', 'Pesci'].map(segno => (
-                            <div key={segno} className="text-center cursor-pointer hover-red flex-shrink-0" style={{width: '60px'}}>
-                                <img src={`https://placehold.co/50x50/000/FFF?text=${segno.substring(0,2).toUpperCase()}`} className="rounded-circle mb-2 shadow-sm w-100" alt={segno} />
-                                <div className="fw-bold font-sans" style={{fontSize: '11px'}}>{segno}</div>
+                            <div key={segno} className="text-center cursor-pointer hover-red flex-shrink-0" style={{ width: '60px' }}>
+                                <img src={`https://placehold.co/50x50/000/FFF?text=${segno.substring(0,2).toUpperCase()}`} className="rounded-circle mb-2 shadow-sm w-100" alt={`Oroscopo del segno ${segno}`} />
+                                <div className="fw-bold font-sans" style={{ fontSize: '11px' }}>{segno}</div>
                             </div>
                         ))}
                     </div>
