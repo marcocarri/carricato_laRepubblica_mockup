@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SidebarMenu from './SidebarMenu';
 
 const Header = () => {
 
@@ -25,7 +26,19 @@ const Header = () => {
         return { date: dateStr, time: timeStr };
     });
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    // EFFETTO PER BLOCCARE LO SCROLL QUANDO IL MENU È APERTO
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden'; // Blocca la pagina sotto
+        } else {
+            document.body.style.overflow = 'unset';  // Sblocca quando chiuso
+        }
+        // Cleanup per sicurezza se il componente viene distrutto
+        return () => { document.body.style.overflow = 'unset'; }
+    }, [isMenuOpen]);
 
     //componente per realizzare il banner grigio con la news nel header
     const GreyNewsBanner = () => (
@@ -61,6 +74,7 @@ const Header = () => {
                                 {/* MENU */}
                                 <span
                                     className="d-flex align-items-center gap-2 cursor-pointer text-secondary"
+                                    onClick={() => setIsMenuOpen(true)}
                                     tabIndex="0"
                                 >
                                     <i className="bi bi-list fs-5"></i> MENU
@@ -258,7 +272,9 @@ const Header = () => {
                 {/* sez: menu/logo+data/accedi */}
                 <div className="text-center bg-white border-bottom">
                     <div className="d-flex justify-content-between align-items-center py-1 px-3">
-                        <i className="bi bi-list fs-2 text-secondary"></i>
+                        <i className="bi bi-list fs-2 text-secondary"
+                           onClick={() => setIsMenuOpen(true)}
+                        ></i>
                         <h1 className="main-logo m-0 text-dark" style={{fontSize: '1.8rem'}}>
                             la Repubblica<span className="text-danger italic-50">50</span>
                         </h1>
@@ -306,6 +322,21 @@ const Header = () => {
                     </nav>
                 </div>
             </div>
+            {/* INSERIMENTO DELLA SIDEBAR (con zIndex super alto) */}
+            <SidebarMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+
+            {/* Sfondo bianco semitrasparente quando il menù è aperto (Backdrop) */}
+            {isMenuOpen && (
+                <div
+                    className="fade show position-fixed top-0 start-0 w-100 h-100"
+                    style={{
+                        zIndex: 1055,
+                        backgroundColor: 'rgba(255, 255, 255, 0.7)', /* Filtro bianco stile Repubblica */
+                        backdropFilter: 'blur(0.5px)' /* Chicca: sfoca leggermente la pagina sotto */
+                    }}
+                    onClick={() => setIsMenuOpen(false)}
+                ></div>
+            )}
         </header>
     );
 };
