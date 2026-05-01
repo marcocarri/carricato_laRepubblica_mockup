@@ -12,27 +12,28 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                 width: '100%',
                 borderRight: '1px solid #ccc',
                 transition: 'transform 0.3s ease-in-out',
-                zIndex: 1060, /* PIÙ ALTO DEL VELO BIANCO (1055) E DELL'HEADER (1050) */
-                overflowY: 'auto' /* FORZA LO SCROLL INTERNO AL MENU */
+                zIndex: 1060,
+                overflowY: 'auto'
             }}
         >
-            {/* SEZ 1: Intestazione fissa con R, Ricerca e Chiusura */}
+            {/* --- testata fissa con logo e ricerca --- */}
             <div className="offcanvas-header border-bottom border-dark border-2 p-3 d-flex align-items-center justify-content-between bg-white position-sticky top-0" style={{zIndex: 10}}>
                 <div className="fw-bold" style={{fontFamily: 'Georgia', fontSize: '2rem'}}>R</div>
 
                 <div className="input-group mx-auto w-50 border border-dark border-1">
                     <input type="text" className="form-control border-0 shadow-none py-1" placeholder="Ricerca su Repubblica" style={{fontSize: '14px'}} />
                     <button className="btn bg-white border-0 text-dark hover-red py-1 px-2">
-                        <i className="bi bi-search fw-bold"></i>
+                        <i className="bi bi-search fw-bold" aria-hidden="true"></i>
                     </button>
                 </div>
 
-                <button type="button" className="btn-close text-reset m-0" onClick={onClose} aria-label="Close"></button>
+                <button type="button" className="btn-close text-reset m-0" onClick={onClose} aria-label="Chiudi menù"></button>
             </div>
 
+            {/* --- area scorrevole dei link --- */}
             <div className="offcanvas-body p-0 font-sans">
 
-                {/* SEZ 2, 3, 4: Link principali */}
+                {/* link primari */}
                 <div className="border-bottom border-dark border-2 p-3">
                     <a href="#!" className="fw-black text-dark text-decoration-none d-block hover-red">ABBONATI</a>
                 </div>
@@ -43,7 +44,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                     <a href="#!" className="fw-black text-dark text-decoration-none d-block hover-red">SFOGLIA IL QUOTIDIANO</a>
                 </div>
 
-                {/* SEZ 5: In Evidenza */}
+                {/* in evidenza */}
                 <div className="border-bottom border-dark border-2 p-3">
                     <h6 className="fw-black mb-3">IN EVIDENZA</h6>
                     <div className="row g-2">
@@ -53,7 +54,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                     </div>
                 </div>
 
-                {/* SEZ 6: Sezioni */}
+                {/* sezioni tematiche */}
                 <div className="border-bottom border-dark border-2 p-3">
                     <h6 className="fw-black mb-3">SEZIONI</h6>
                     <div className="row g-2">
@@ -70,7 +71,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                     </div>
                 </div>
 
-                {/* SEZ 7: Edizioni Locali */}
+                {/* edizioni locali */}
                 <div className="border-bottom border-dark border-2 p-3">
                     <h6 className="fw-black mb-3">EDIZIONI LOCALI</h6>
                     <div className="row g-2">
@@ -86,7 +87,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                     </div>
                 </div>
 
-                {/* SEZ 8: Dirette Sportive */}
+                {/* dirette sportive */}
                 <div className="border-bottom border-dark border-2 p-3">
                     <h6 className="fw-black mb-3">DIRETTE SPORTIVE</h6>
                     <div className="row g-2">
@@ -100,7 +101,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                     </div>
                 </div>
 
-                {/* SEZ 9: Inserti */}
+                {/* inserti */}
                 <div className="border-bottom border-dark border-2 p-3">
                     <h6 className="fw-black mb-3">INSERTI</h6>
                     <div className="row g-2">
@@ -113,7 +114,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                     </div>
                 </div>
 
-                {/* SEZ 10: Speciali */}
+                {/* speciali */}
                 <div className="border-bottom border-dark border-2 p-3">
                     <h6 className="fw-black mb-3">SPECIALI</h6>
                     <div className="row g-2">
@@ -126,7 +127,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                     </div>
                 </div>
 
-                {/* SEZ 11: Servizi e Partner */}
+                {/* servizi e partner */}
                 <div className="border-bottom border-dark border-2 p-3">
                     <h6 className="fw-black mb-3">SERVIZI E PARTNER</h6>
                     <div className="row g-2">
@@ -146,7 +147,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                     </div>
                 </div>
 
-                {/* SEZ 12: Dizionari */}
+                {/* dizionari */}
                 <div className="border-dark border-2 p-3">
                     <h6 className="fw-black mb-3">DIZIONARI</h6>
                     <div className="row g-2">
@@ -158,7 +159,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
 
             </div>
 
-            {/* SEZ 13: Redazione / Scriveteci (Fisso in fondo) */}
+            {/* --- footer fisso del menù --- */}
             <div className="border-top border-dark border-2 d-flex mt-auto position-sticky bottom-0 bg-white">
                 <a href="#!" className="w-50 p-3 text-center text-dark text-decoration-none fw-bold border-2 border-end border-dark hover-red">Redazione</a>
                 <a href="#!" className="w-50 p-3 text-center text-dark text-decoration-none fw-bold hover-red">Scriveteci</a>
