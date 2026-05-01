@@ -3,8 +3,11 @@ import SidebarMenu from './SidebarMenu';
 
 const Header = () => {
 
-    const[isScrolled, setIsScrolled] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const[isMenuOpen, setIsMenuOpen] = useState(false);
+    const[isSearchOpen, setIsSearchOpen] = useState(false);
 
+    // --- gestione dello scroll per l'header compatto ---
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
@@ -17,8 +20,19 @@ const Header = () => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    },[])
+    },[]);
 
+    // --- blocco dello scroll della pagina quando il menù laterale è aperto ---
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => { document.body.style.overflow = 'unset'; }
+    }, [isMenuOpen]);
+
+    // --- generazione di data e ora dinamiche ---
     const [pageLoadTime] = useState(() => {
         const now = new Date();
         const dateStr = new Intl.DateTimeFormat('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }).format(now).toUpperCase();
@@ -26,27 +40,13 @@ const Header = () => {
         return { date: dateStr, time: timeStr };
     });
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-    // EFFETTO PER BLOCCARE LO SCROLL QUANDO IL MENU È APERTO
-    useEffect(() => {
-        if (isMenuOpen) {
-            document.body.style.overflow = 'hidden'; // Blocca la pagina sotto
-        } else {
-            document.body.style.overflow = 'unset';  // Sblocca quando chiuso
-        }
-        // Cleanup per sicurezza se il componente viene distrutto
-        return () => { document.body.style.overflow = 'unset'; }
-    }, [isMenuOpen]);
-
-    //componente per realizzare il banner grigio con la news nel header
+    // --- componente per il banner grigio delle news ---
     const GreyNewsBanner = () => (
         <div className="bg-slate text-white py-2">
             <div className="container d-flex align-items-center px-3 px-md-0">
                 <div className="position-relative" style={{ minWidth: '120px' }}>
                     <img src="https://placehold.co/120x68/222/FFF?" alt="News Video" className="img-fluid" />
-                    <i className="bi bi-play-circle-fill position-absolute top-50 start-50 translate-middle fs-4"></i>
+                    <i className="bi bi-play-circle-fill position-absolute top-50 start-50 translate-middle fs-4" aria-hidden="true"></i>
                 </div>
                 <div className="ms-3">
                     <h2 className="h6 fw-bold m-0 font-sans" style={{ lineHeight: '1.4' }}>
@@ -60,44 +60,29 @@ const Header = () => {
     return (
         <header className="page-header sticky-top bg-white">
 
-            {/* modalità desktop */}
+            {/* --- modalità desktop --- */}
             <div className="d-none d-md-block">
 
-                {/* sez: menù/ricerca/notifiche/abonati/accedi */}
+                {/* menù utility, ricerca e notifiche */}
                 <div className="bg-white position-relative" style={{ zIndex: 1050 }}>
 
-                    {/* Barra superiore */}
                     <div className="border-bottom py-2">
                         <div className="container d-flex align-items-center position-relative font-sans text-uppercase fw-bold p-0" style={{fontSize: '12px', height: '35px'}}>
 
+                            {/* controlli di sinistra */}
                             <div className="d-flex gap-4">
-                                {/* MENU */}
-                                <span
-                                    className="d-flex align-items-center gap-2 cursor-pointer text-secondary"
-                                    onClick={() => setIsMenuOpen(true)}
-                                    tabIndex="0"
-                                >
-                                    <i className="bi bi-list fs-5"></i> MENU
+                                <span className="d-flex align-items-center gap-2 cursor-pointer text-secondary" onClick={() => setIsMenuOpen(true)} tabIndex="0">
+                                    <i className="bi bi-list fs-5" aria-hidden="true"></i> MENU
                                 </span>
-
-                                {/* CERCA */}
-                                <span
-                                    className={"d-flex align-items-center gap-2 cursor-pointer text-secondary"}
-                                    onClick={() => setIsSearchOpen(!isSearchOpen)}
-                                    tabIndex="0"
-                                >
-                                    <i className="bi bi-search fs-6"></i> CERCA
+                                <span className="d-flex align-items-center gap-2 cursor-pointer text-secondary" onClick={() => setIsSearchOpen(!isSearchOpen)} tabIndex="0">
+                                    <i className="bi bi-search fs-6" aria-hidden="true"></i> CERCA
                                 </span>
-
-                                {/* NOTIFICHE */}
-                                <span
-                                    className="d-flex align-items-center gap-2 cursor-pointer text-secondary"
-                                    tabIndex="0"
-                                >
-                                    <i className="bi bi-bell fs-6"></i> NOTIFICHE
+                                <span className="d-flex align-items-center gap-2 cursor-pointer text-secondary" tabIndex="0">
+                                    <i className="bi bi-bell fs-6" aria-hidden="true"></i> NOTIFICHE
                                 </span>
                             </div>
 
+                            {/* logo centrale a comparsa */}
                             <div className="position-absolute start-50 translate-middle-x text-secondary">
                                 {isScrolled ? (
                                     <h1 className="main-logo m-0 fw-black text-dark" style={{fontSize: '2.2rem', letterSpacing: '-2px'}}>
@@ -108,45 +93,37 @@ const Header = () => {
                                 )}
                             </div>
 
+                            {/* area utente a destra */}
                             <div className="ms-auto d-flex align-items-center gap-3 cursor-pointer text-secondary" tabIndex="0">
                                 {isScrolled && <span>ABBONATI</span>}
                                 <span className="d-flex align-items-center gap-2">
                                     <span>ACCEDI</span>
-                                    <i className="bi bi-person-circle fs-4"></i>
+                                    <i className="bi bi-person-circle fs-4" aria-hidden="true"></i>
                                 </span>
                             </div>
                         </div>
                     </div>
 
-                    {/* BARRA DI RICERCA A COMPARSA */}
+                    {/* barra di ricerca a comparsa */}
                     {isSearchOpen && (
-                        <div
-                            className={`bg-offwhite border-bottom py-3 px-4 d-flex align-items-center justify-content-center shadow-sm w-100 ${isScrolled ? 'position-absolute start-0' : ''}`}
-                            style={isScrolled ? { top: '100%' } : {}}
-                        >
+                        <div className={`bg-offwhite border-bottom py-3 px-4 d-flex align-items-center justify-content-center shadow-sm w-100 ${isScrolled ? 'position-absolute start-0' : ''}`} style={isScrolled ? { top: '100%' } : {}}>
                             <div className="input-group d-flex align-items-center mx-auto" style={{ maxWidth: '700px' }}>
                                 <input type="text" className="form-control rounded-0 border-secondary py-2" placeholder="Cerca articoli o argomenti" />
                                 <button className="btn btn-white border border-secondary border-start-0 rounded-0 bg-white py-2 px-3 text-dark hover-red">
-                                    <i className="bi bi-search"></i>
+                                    <i className="bi bi-search" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <i className="bi bi-x-lg ms-4 cursor-pointer fs-5 text-secondary hover-red" onClick={() => setIsSearchOpen(false)}></i>
+                            <i className="bi bi-x-lg ms-4 cursor-pointer fs-5 text-secondary hover-red" onClick={() => setIsSearchOpen(false)} aria-hidden="true"></i>
                         </div>
                     )}
                 </div>
 
-                {/* Refined transition for Desktop Header Content */}
-                <div style={{
-                    maxHeight: isScrolled ? '0' : '800px',
-                    overflow: isScrolled ? 'hidden' : 'visible', /* IL SEGRETO È QUI: visible quando è aperto! */
-                    opacity: isScrolled ? '0' : '1',
-                    visibility: isScrolled ? 'hidden' : 'visible',
-                    transition: 'max-height 0.4s ease-in-out, opacity 0.3s ease-in-out'
-                }}>
-                    {/* sez: banner grigio news */}
+                {/* blocco a scomparsa durante lo scroll */}
+                <div style={{ maxHeight: isScrolled ? '0' : '800px', overflow: isScrolled ? 'hidden' : 'visible', opacity: isScrolled ? '0' : '1', visibility: isScrolled ? 'hidden' : 'visible', transition: 'max-height 0.4s ease-in-out, opacity 0.3s ease-in-out' }}>
+
                     <GreyNewsBanner />
 
-                    {/* sez: logo e data */}
+                    {/* logo principale e data */}
                     <div className="container py-4 text-center border-bottom">
                         <h1 className="main-logo m-0 fw-black text-dark">
                             la Repubblica<span className="text-danger italic-50">50</span>
@@ -156,14 +133,13 @@ const Header = () => {
                         </div>
                     </div>
 
-                    {/* sez: sezioni/edizioni locali/servizi/news fisse */}
+                    {/* navigazione a tendine e scorrevole */}
                     <nav className="position-relative" style={{zIndex: 1040}}>
-                        {/* Apertura Scatola: border-top, border-start, border-end */}
-                        <div className="container border-top border-start border-end border-bottom box-border-color d-flex align-items-center font-sans text-uppercase fw-bold p-0"
-                             style={{fontSize: '13px', height: '45px', backgroundColor: 'var(--rep-gray-bg)'}}>
+                        <div className="container border-top border-start border-end border-bottom box-border-color d-flex align-items-center font-sans text-uppercase fw-bold p-0" style={{fontSize: '13px', height: '45px', backgroundColor: 'var(--rep-gray-bg)'}}>
 
                             <div className="d-flex h-100 bg-white position-relative">
-                                {/* MEGA MENU: SEZIONI */}
+
+                                {/* sezioni */}
                                 <div className="dropdown h-100 border-end border-start box-border-color px-3 d-flex align-items-center position-static">
                                     <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-display="static" data-bs-auto-close="outside">SEZIONI</span>
                                     <div className="dropdown-menu rounded-0 shadow-sm border-0 p-4 mega-menu-sections mt-0">
@@ -203,7 +179,7 @@ const Header = () => {
                                     </div>
                                 </div>
 
-                                {/* MEGA MENU: EDIZIONI LOCALI */}
+                                {/* edizioni locali */}
                                 <div className="dropdown h-100 border-end box-border-color px-3 d-flex align-items-center">
                                     <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-display="static">EDIZIONI LOCALI</span>
                                     <div className="dropdown-menu rounded-0 shadow-sm border-0 p-4 mega-menu-edizioni mt-0">
@@ -221,7 +197,7 @@ const Header = () => {
                                     </div>
                                 </div>
 
-                                {/* MEGA MENU: SERVIZI */}
+                                {/* servizi */}
                                 <div className="dropdown h-100 border-end box-border-color px-3 d-flex align-items-center">
                                     <span className="cursor-pointer dropdown-toggle text-secondary" data-bs-toggle="dropdown" data-bs-display="static">SERVIZI</span>
                                     <div className="dropdown-menu rounded-0 shadow-sm border-0 p-4 mega-menu-services mt-0">
@@ -246,6 +222,7 @@ const Header = () => {
                                 </div>
                             </div>
 
+                            {/* link rapidi in evidenza */}
                             <div className="d-flex gap-4 ms-4 text-nowrap text-secondary align-items-center h-100 flex-grow-1 overflow-auto no-scrollbar">
                                 <span className="text-secondary">Repubblica50</span>
                                 <span>Dolor Sit</span>
@@ -260,34 +237,27 @@ const Header = () => {
                 </div>
             </div>
 
-            {/* modalità mobile */}
+            {/* --- modalità mobile --- */}
             <div className="d-md-none">
 
-                {/* sez: notifiche/abbonati */}
+                {/* fascia superiore */}
                 <div className="py-1 px-3 d-flex justify-content-between align-items-center font-sans" style={{ backgroundColor: '#f9f9f9' }}>
-                    <i className="bi bi-bell fs-5 text-secondary"></i>
+                    <i className="bi bi-bell fs-5 text-secondary" aria-hidden="true"></i>
                     <span className="fw-bold text-dark text-uppercase small" style={{fontSize: '11px'}}>ABBONATI</span>
                 </div>
 
-                {/* sez: menu/logo+data/accedi */}
+                {/* controlli e logo */}
                 <div className="text-center bg-white border-bottom">
                     <div className="d-flex justify-content-between align-items-center py-1 px-3">
-                        <i className="bi bi-list fs-2 text-secondary"
-                           onClick={() => setIsMenuOpen(true)}
-                        ></i>
+                        <i className="bi bi-list fs-2 text-secondary cursor-pointer" onClick={() => setIsMenuOpen(true)} aria-hidden="true"></i>
                         <h1 className="main-logo m-0 text-dark" style={{fontSize: '1.8rem'}}>
                             la Repubblica<span className="text-danger italic-50">50</span>
                         </h1>
-                        <i className="bi bi-person-circle fs-4 text-secondary"></i>
+                        <i className="bi bi-person-circle fs-4 text-secondary cursor-pointer" aria-hidden="true"></i>
                     </div>
-                    {/* Refined transition for Mobile Data/Time */}
-                    <div style={{
-                        maxHeight: isScrolled ? '0' : '50px',
-                        overflow: 'hidden',
-                        opacity: isScrolled ? '0' : '1',
-                        visibility: isScrolled ? 'hidden' : 'visible',
-                        transition: 'max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s'
-                    }}>
+
+                    {/* data a scomparsa */}
+                    <div style={{ maxHeight: isScrolled ? '0' : '50px', overflow: 'hidden', opacity: isScrolled ? '0' : '1', visibility: isScrolled ? 'hidden' : 'visible', transition: 'max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s' }}>
                         <hr className="m-0 border-secondary opacity-100" style={{color: '#484848'}} />
                         <div className="text-secondary py-1 font-sans text-uppercase" style={{fontSize: '10px'}}>
                             {pageLoadTime.date} - AGGIORNATO ALLE {pageLoadTime.time}
@@ -295,18 +265,9 @@ const Header = () => {
                     </div>
                 </div>
 
-                {/* Refined transition for Mobile Banner/Nav */}
-                <div style={{
-                    maxHeight: isScrolled ? '0' : '200px',
-                    overflow: 'hidden',
-                    opacity: isScrolled ? '0' : '1',
-                    visibility: isScrolled ? 'hidden' : 'visible',
-                    transition: 'max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s'
-                }}>
-                    {/* sez: banner grigio news */}
+                {/* banner e link rapidi a scomparsa */}
+                <div style={{ maxHeight: isScrolled ? '0' : '200px', overflow: 'hidden', opacity: isScrolled ? '0' : '1', visibility: isScrolled ? 'hidden' : 'visible', transition: 'max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s' }}>
                     <GreyNewsBanner />
-
-                    {/* sez: news fisse */}
                     <nav className="py-2 bg-white shadow-sm">
                         <div className="container-fluid px-3 overflow-auto no-scrollbar font-sans fw-bold" style={{fontSize: '14px'}}>
                             <div className="d-flex gap-4 text-nowrap text-secondary">
@@ -322,17 +283,18 @@ const Header = () => {
                     </nav>
                 </div>
             </div>
-            {/* INSERIMENTO DELLA SIDEBAR (con zIndex super alto) */}
+
+            {/* --- componente menù laterale a scomparsa --- */}
             <SidebarMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
-            {/* Sfondo bianco semitrasparente quando il menù è aperto (Backdrop) */}
+            {/* livello semitrasparente scuro/sfocato per chiudere il menù cliccando fuori */}
             {isMenuOpen && (
                 <div
                     className="fade show position-fixed top-0 start-0 w-100 h-100"
                     style={{
                         zIndex: 1055,
-                        backgroundColor: 'rgba(255, 255, 255, 0.7)', /* Filtro bianco stile Repubblica */
-                        backdropFilter: 'blur(0.5px)' /* Chicca: sfoca leggermente la pagina sotto */
+                        backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                        backdropFilter: 'blur(0.5px)'
                     }}
                     onClick={() => setIsMenuOpen(false)}
                 ></div>
