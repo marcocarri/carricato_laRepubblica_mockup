@@ -157,9 +157,9 @@ a {
   transition: all 0.2s;
 }
 .social-icon:hover {
-  background-color: var(--rep-red);
+  background-color: #5b88d5;
   color: #fff;
-  border-color: var(--rep-red);
+  border-color: #5b88d5;
 }
 
 .fw-black {
