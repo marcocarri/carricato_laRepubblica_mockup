@@ -108,8 +108,8 @@ const Header = () => {
                     {isSearchOpen && (
                         <div className={`bg-offwhite border-bottom py-3 px-4 d-flex align-items-center justify-content-center shadow-sm w-100 ${isScrolled ? 'position-absolute start-0' : ''}`} style={isScrolled ? { top: '100%' } : {}}>
                             <div className="input-group d-flex align-items-center mx-auto" style={{ maxWidth: '700px' }}>
-                                <input type="text" className="form-control rounded-0 border-secondary py-2" placeholder="Cerca articoli o argomenti" />
-                                <button className="btn btn-white border border-secondary border-start-0 rounded-0 bg-white py-2 px-3 text-dark hover-red">
+                                <input type="text" className="form-control rounded-0 border-secondary py-2" placeholder="Cerca articoli o argomenti" aria-label="Cerca articoli o argomenti"/>
+                                <button className="btn btn-white border border-secondary border-start-0 rounded-0 bg-white py-2 px-3 text-dark hover-red" aria-label="Ricerca">
                                     <i className="bi bi-search" aria-hidden="true"></i>
                                 </button>
                             </div>

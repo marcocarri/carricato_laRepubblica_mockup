@@ -222,3 +222,43 @@ a {
   text-transform: capitalize;
   white-space: nowrap;
 }
+
+/* --- correzioni per l'accessibilità (contrasto colori) --- */
+
+/* testo grigio scurito per sfondi chiari */
+.text-secondary {
+  color: #4f5459 !important;
+}
+
+/* arancione delle categorie scurito per sfondo bianco */
+.text-rep-orange {
+  color: #cc4600 !important;
+}
+
+.border-rep-orange {
+  border-color: #cc4600 !important;
+}
+
+/* testi bianchi semi-trasparenti resi più opachi e leggibili */
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* colore blu al passaggio del mouse scurito per maggior contrasto */
+.cursor-pointer:hover,
+.cursor-pointer:focus,
+.dropdown-toggle:hover,
+.dropdown-toggle:focus,
+.dropdown-toggle.show,
+.text-blue-active,
+.hover-red:hover {
+  color: #2c5a9e !important;
+  outline: none !important;
+}
+
+/* icone social al passaggio del mouse */
+.social-icon:hover {
+  background-color: #2c5a9e;
+  border-color: #2c5a9e;
+  color: #fff;
+}

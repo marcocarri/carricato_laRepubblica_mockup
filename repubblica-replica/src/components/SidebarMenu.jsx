@@ -21,8 +21,8 @@ const SidebarMenu = ({ isOpen, onClose }) => {
                 <div className="fw-bold" style={{fontFamily: 'Georgia', fontSize: '2rem'}}>R</div>
 
                 <div className="input-group mx-auto w-50 border border-dark border-1">
-                    <input type="text" className="form-control border-0 shadow-none py-1" placeholder="Ricerca su Repubblica" style={{fontSize: '14px'}} />
-                    <button className="btn bg-white border-0 text-dark hover-red py-1 px-2">
+                    <input type="text" className="form-control border-0 shadow-none py-1" placeholder="Ricerca su Repubblica" style={{fontSize: '14px'}} aria-label="Cerca su Repubblica"/>
+                    <button className="btn bg-white border-0 text-dark hover-red py-1 px-2" aria-label="Ricerca">
                         <i className="bi bi-search fw-bold" aria-hidden="true"></i>
                     </button>
                 </div>
